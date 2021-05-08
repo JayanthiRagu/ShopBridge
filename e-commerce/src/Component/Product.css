@@ -1,0 +1,81 @@
+.header{
+    font-size: xx-large;
+    padding:5px;
+    font-weight: bolder;
+}
+.heading{
+    font-size: x-large;
+}
+.radioContainer{
+    height: 150px;
+    width:200px;
+    background-color: white;
+    box-shadow: 0 0 2px #222;
+    margin:70px auto;
+    padding:20px; 
+}
+.radioContainer label{
+    text-align: left;
+    cursor: pointer;
+    text-align: left;
+}
+.radioContainer input{
+    padding: 2px;
+    float:left;
+    cursor: pointer;
+}
+button{
+    padding:6px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.getPanel{
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.postPanel{
+    height: 300px;
+    width:500px;
+    background-color: white;
+    box-shadow: 0 0 2px #222;
+    margin:70px auto;
+    padding:20px;
+}
+.putPanel{
+    height: 300px;
+    width:500px;
+    background-color: white;
+    box-shadow: 0 0 2px #222;
+    margin:70px auto;
+    padding:20px;
+}
+.deletePanel{
+    height: 200px;
+    width:500px;
+    background-color: white;
+    box-shadow: 0 0 2px #222;
+    margin:70px auto;
+    padding:20px;
+}
+.label{
+    justify-self: end;
+}
+.input{
+    justify-self: start;
+}
+.grid{
+display: grid;
+grid-template-columns: 0.75fr 1fr;
+grid-column-gap: 10px;
+justify-items: center;
+grid-auto-flow: column;
+}
+.error{
+    color:red;
+    font-size: 15px;
+
+}
