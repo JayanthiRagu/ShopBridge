@@ -60,8 +60,12 @@ class Product extends Component {
                 description:this.state.description,
                 price:this.state.price
             }
-            axios.post("https://thinkbridge.com/api/item/",{item}).then(res=>{
+            axios.post("https://fakestoreapi.com/products",{item}).then(res=>{
                 console.log(res);
+                if(res.status===200)
+                {
+                    alert("Item is added Successfully");
+                }
             }).catch(err=>{
                 console.log(err);
             });
@@ -120,8 +124,12 @@ class Product extends Component {
                 modify_description:this.state.modify_description,
                 modify_price:this.state.modify_price
             }
-            axios.put("https://thinkbridge.com/api/item/"+this.state.modify_id,{item}).then(res=>{
+            axios.put("https://fakestoreapi.com/products/"+this.state.modify_id,{item}).then(res=>{
                 console.log(res);
+                if(res.status===200)
+                {
+                    alert("Item is updated Successfully");
+                }
             }).catch(err=>{
                 console.log(err);
             });
@@ -183,8 +191,12 @@ class Product extends Component {
         }
         else if(this.state.isValid==true)
         {
-            axios.delete("https://thinkbridge.com/api/item/"+this.state.delete_id).then(res=>{
+            axios.delete("https://fakestoreapi.com/products/"+this.state.delete_id).then(res=>{
                 console.log(res);
+                if(res.status===200)
+                {
+                    alert("Item is deleted Successfully");
+                }
             }).catch(err=>{
                 console.log(err);
             });
@@ -193,7 +205,7 @@ class Product extends Component {
     }
     onDeleteIdHandler= (e)=>{
         this.setState({delete_id:e.target.value})
-        let regex_id=/^[0-9]{1,5}$/;
+        let regex_id=/^[0-9]{0,5}$/;
         if(!regex_id.test(this.state.delete_id) || this.state.delete_id.length===0){
             this.setState({errors:{delete_id:'Please enter product id'},isValid:false});
         }
@@ -206,9 +218,9 @@ class Product extends Component {
     //To list the items in the inventory
     componentDidMount(){
         //Sample API format
-        axios.get("https://thinkbridge.com/api/items").then(res=>{
+        axios.get("https://fakestoreapi.com/products").then(res=>{
             console.log(res.data);
-            this.setState({datas:res.data.data});
+             this.setState({datas:res.data});
         }).catch(err=>{
             console.log(err);
         });
@@ -266,10 +278,12 @@ class Product extends Component {
                      <div class="getPanel">
                 {this.state.datas.length>0 && this.state.datas.map(data=>(
                     <span key={data.id}>
-                        <img src={data.product_img} alt="image"/>
-                        <p>Name:{data.name}</p>
-                        <p>Description:{data.description}</p>
-                        <p>Price:{data.price}</p>
+                        <div class="getPanel1">
+                        <span><img src={data.image} alt="image" width="80px" height="80px"/></span><br></br><br></br>
+                        <span class="price">Price:{data.price}</span><br></br><br></br>
+                        <span class="name">{data.title}</span><br></br><br></br>
+                        <span>{data.description}</span>
+                        </div>
                     </span>
                 ))}
                 </div>

@@ -37,6 +37,22 @@ button{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.getPanel1{
+    min-height: 300px;
+    width:500px;
+    background-color: white;
+    box-shadow: 0 0 2px #222;
+    margin:70px auto;
+    padding:30px;
+}
+.name{
+    font-weight:bold;
+    font-size:medium;
+}
+.price{
+    font-size:medium;
+    font-weight:bold;
+}
 .postPanel{
     height: 300px;
     width:500px;
